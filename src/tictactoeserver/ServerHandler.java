@@ -58,6 +58,7 @@ public class ServerHandler extends Thread {
     while(true){
         try {
             String key =dis.readUTF();
+            System.out.println(key);
             authintication(key);
         } catch (IOException ex) {
             Logger.getLogger(ServerHandler.class.getName()).log(Level.SEVERE, null, ex);
@@ -104,7 +105,7 @@ public class ServerHandler extends Thread {
         else JOptionPane.showMessageDialog(null, "Incorrect Email or Password");
     }
     public void authintication(String key){
-    if(key.equals("Login")){
+    if(key.equals("Sign in")){
         try {
             String email = dis.readUTF();
             String password = dis.readUTF();

@@ -44,7 +44,7 @@ public class ServerHandler extends Thread {
             clientVector.add(this);
             try {
                  DriverManager.registerDriver(new ClientDriver());
-                 con = DriverManager.getConnection("jdbc:derby://localhost:1527/Players", "seif", "mmhzs");
+                 con = DriverManager.getConnection("jdbc:derby://172.20.10.3:1527/Players", "seif", "mmhzs");
             } catch (SQLException ex) {
                 Logger.getLogger(ServerHandler.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -105,7 +105,7 @@ public class ServerHandler extends Thread {
         else JOptionPane.showMessageDialog(null, "Incorrect Email or Password");
     }
     public void authintication(String key){
-    if(key.equals("Sign in")){
+    if(key.equals("Login")){
         try {
             String email = dis.readUTF();
             String password = dis.readUTF();

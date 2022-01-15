@@ -5,31 +5,31 @@
  */
 package tictactoeserver;
 
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.apache.derby.jdbc.ClientDriver;
+
 
 /**
  *
  * @author DELL
  */
 public class TicTacToeServer {
-
-    /**
-     * @param args the command line arguments
-     *
-     */
+public static final int PLAYER1 = 1;
+    public static final int PLAYER2 = 2;
+    public static final int PLAYER1_WON = 1;
+    public static final int PLAYER2_WON = 2;
+    public static final int DRAW = 3;
+    public static final int CONTINUE = 4;
+   
    
     ServerSocket serverSocket;
     Socket s;
+   
+    
     public TicTacToeServer() {
          try {
            
@@ -37,7 +37,7 @@ public class TicTacToeServer {
              while(true){
              s = serverSocket.accept();
              new ServerHandler(s);
-
+//            new OnlineHandler(s);
            }
         } catch (IOException ex) {
             Logger.getLogger(TicTacToeServer.class.getName()).log(Level.SEVERE, null, ex);
